@@ -1,5 +1,10 @@
 <h2>🚀 Live Demo</h2>
 <p>Check out the live version: <a href="https://mahmoudeissam.github.io/Currency-Converter-/">Currency Converter</a></p>
+## 📸 Screenshots
+
+|Currency Converter|
+|------------|
+| <img src="Capture.JPG" width="400"> 
 
 <h2>📌 Features</h2>
 <ul>
