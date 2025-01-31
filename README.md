@@ -4,7 +4,7 @@
 
 |Currency Converter|
 |------------|
-| <img src="Capture.JPG" width="400"> 
+| <img src="Capture.JP" width="400"> 
 
 <h2>📌 Features</h2>
 <ul>
