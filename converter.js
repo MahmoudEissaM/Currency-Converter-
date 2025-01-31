@@ -27,18 +27,29 @@ function populateCurrencyOptions(currencies) {
     toCurrency.value = "EGP";
 }
 
+
 function convertCurrency() {
+    console.log("convertCurrency called");
+
+    if (Object.keys(exchangeRates).length === 0) {
+        result.innerText = "Exchange rates are not loaded yet. Please wait...";
+        return;
+    }
+
     let from = fromCurrency.value;
     let to = toCurrency.value;
     let amountValue = parseFloat(amount.value);
+
     if (isNaN(amountValue) || amountValue <= 0) {
         result.innerText = "Please enter a valid amount";
         return;
     }
+
     let rate = exchangeRates[to] / exchangeRates[from];
     let convertedAmount = (amountValue * rate).toFixed(2);
     result.innerText = `${amountValue} ${from} = ${convertedAmount} ${to}`;
 }
+
 
 function swapCurrencies() {
     let temp = fromCurrency.value;
@@ -47,15 +58,19 @@ function swapCurrencies() {
     convertCurrency();
 }
 
+
 amount.addEventListener('input', convertCurrency);
 fromCurrency.addEventListener('change', convertCurrency);
 toCurrency.addEventListener('change', convertCurrency);
 swapButton.addEventListener('click', swapCurrencies);
+
 
 $(document).ready(function () {
     $('.select2').select2({
         width: '100%',
         placeholder: "Select a currency",
         allowClear: true
+    }).on('change', function () {
+        convertCurrency();
     });
 });
